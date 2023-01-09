@@ -1,0 +1,1 @@
+In this project "customer" we are going to use "jpa".

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Title</th>
+                <th>Genre</th>
+                <th>Music Company</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            {#for cd in cds}
+            <tr>
+                <th>{cd.id}</th>
+                <th>{cd.title}</th>
+                <th>{cd.genre}</th>
+                <th>{cd.musicCompany}</th>
+                <th>{cd.price}</th>
+            </tr>
+            {/for}
+        </tbody>
+    </table>
+
+</body>
+</html>

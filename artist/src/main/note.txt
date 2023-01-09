@@ -1,0 +1,2 @@
+The ArtistRepository is under the folder "test" because it is just for the Artist project;
+it won't be used in the main Vintage-store project.
