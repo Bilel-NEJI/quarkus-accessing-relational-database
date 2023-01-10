@@ -14,15 +14,16 @@ import java.util.List;
 @Path("/api/publishers")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
+@Transactional(Transactional.TxType.SUPPORTS)
 public class PublisherResource {
 
-    // No need to inject any repository because the publisher class is using the Panache entity
+    // No need to inject any repository because the publisher class is using the Panache entity (which uses the Active record)
 //    @Inject
 //    PublisherRepository publisherRepository;
 
     @GET
     @Path("{id}")
-    public Publisher findArtistById(@PathParam("id") Long id) {
+    public Publisher findPublisherById(@PathParam("id") Long id) {
         return (Publisher) Publisher.findByIdOptional(id).orElseThrow(NotFoundException::new);
     }
 
@@ -38,8 +39,8 @@ public class PublisherResource {
     }
 
 
-    @GET
-    @Transactional
+    @POST
+    @Transactional(Transactional.TxType.REQUIRED)
     public Response persistPublisher(Publisher publisher, @Context UriInfo uriInfo) {
         Publisher.persist(publisher);
         UriBuilder builder = uriInfo.getAbsolutePathBuilder().path(Long.toString(publisher.id));
@@ -47,7 +48,7 @@ public class PublisherResource {
     }
 
 
-    @POST
+    @DELETE
     @Path("{id}")
     @Transactional
     public void deletePublisher(@PathParam("id") Long id) {

@@ -1,10 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Title</title>
-</head>
-<body>
-
-</body>
-</html>
+{#include base.html}
+{#title}Artists{/title}
+{#body}
+    <table>
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>id</th>
+                <th>name</th>
+                <th>bio</th>
+                <th>createdDate</th>
+            </tr>
+        </thead>
+        <tbody>
+            {#for artist in artists}
+            <tr>
+                <th>{artist.id}</th>
+                <th>{artist.name}</th>
+                <th>{artist.bio}</th>
+                <th>{artist.musicCompany}</th>
+                <th>{artist.createdDate}</th>
+            </tr>
+            {/for}
+        </tbody>
+    </table>
+{/body}
+{/include}

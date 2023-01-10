@@ -1,10 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>CD {cd.id}</title>
-</head>
-<body>
+{#include base.html}
+{#title}CD {cd.id}{/title}
+{#body}
     Id: {cd.id}
     Title: {cd.title}
     Description: {cd.description}
@@ -12,5 +8,5 @@
     Music Company: {cd.musicCompany}
     Genre: {cd.genre}
     Created Date: {cd.createdDate}
-</body>
-</html>
+{/body}
+{/include}

@@ -36,8 +36,8 @@ public class ArtistResource {
         return artistRepository.listAllArtistsSorted();
     }
 
-    @GET
-    @Transactional
+    @POST
+    @Transactional(Transactional.TxType.REQUIRED)
     public Response persistArtist(Artist artist, @Context UriInfo uriInfo) {
         artistRepository.persist(artist);
         UriBuilder builder = uriInfo.getAbsolutePathBuilder().path(Long.toString(artist.getId()));
@@ -45,7 +45,7 @@ public class ArtistResource {
     }
 
 
-    @POST
+    @DELETE
     @Path("{id}")
     @Transactional
     public void deleteArtist(@PathParam("id") Long id) {

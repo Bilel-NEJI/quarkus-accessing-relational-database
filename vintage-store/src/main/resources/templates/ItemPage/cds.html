@@ -1,32 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-    <table>
+{#include base.html}
+{#title}CDs{/title}
+{#body}
+    <table class="table">
         <thead>
             <tr>
-                <th>#</th>
-                <th>Title</th>
-                <th>Genre</th>
-                <th>Music Company</th>
-                <th>Price</th>
+                <th scope="col">#</th>
+                <th scope="col">Title</th>
+                <th scope="col">Genre</th>
+                <th scope="col">Music Company</th>
+                <th scope="col">Price</th>
             </tr>
         </thead>
         <tbody>
             {#for cd in cds}
             <tr>
-                <th>{cd.id}</th>
-                <th>{cd.title}</th>
-                <th>{cd.genre}</th>
-                <th>{cd.musicCompany}</th>
-                <th>{cd.price}</th>
+                <th scope="row">{cd.id}</th>
+                <th scope="row">{cd.title}</th>
+                <th scope="row">{cd.genre}</th>
+                <th scope="row">{cd.musicCompany}</th>
+                <th scope="row">{cd.price}</th>
             </tr>
             {/for}
         </tbody>
     </table>
-
-</body>
-</html>
+{/body}
+{/include}
